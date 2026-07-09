@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Zoomie AFM Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="chat.js"></script>
+</head>
+<body>
+<div class="chatSection" id="chatSectionDiv">
+    <h1 class="userResponse" id="userResponseH1">User: ...</h1>
+    <h1 class="aiResponse" id="aiResponseH1" style="">AI: ...</h1>
+</div>
+<div class="userInteractionArea" id="userInteractionArea">
+<input type="text" name="questionEntry" placeholder="question..." id="questionEntryField">
+    <button id="sendBtn">Send</button>
+</div>
+
+<script>aiResponseTextField = document.getElementById("aiResponseH1")</script>
+<script>userResponseTextField = document.getElementById("userResponseH1")</script>
+
+<script>
+const sendButton = document.getElementById("sendBtn")
+const inputField = document.getElementById("questionEntryField")
+
+sendButton.addEventListener("click", async () => {
+    console.log(inputField.value)
+    sendButton.disabled = true
+    inputField.disabled = true
+
+    try {
+        await getResponseFromAfm(inputField.value)
+    } finally {
+        inputField.value = ""
+        sendButton.disabled = false
+        inputField.disabled = false
+    }
+})
+</script>
+</body>
+</html>
