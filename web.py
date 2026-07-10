@@ -11,6 +11,7 @@ import uuid
 import afmChat
 import time
 import json
+import uvicorn
 
 app = FastAPI()
 afModels = afmChat.appleFoundationModels()
@@ -18,6 +19,7 @@ afModels = afmChat.appleFoundationModels()
 if not afModels.getIfFoundationModelsAvailable():
     print(f"Apple Foundation Models unavailable. Reason: {afModels.getFoundationModelUnavailableErrorMessage()}")
     quit()
+
 
 @app.post("/v1/chat/completions")
 async def chatCompletions(request: dict):
@@ -143,3 +145,7 @@ async def wwwGetPage(item: str):
     with open(requestedPath) as page:
         print(requestedPath)
         return HTMLResponse(content=page.read(), status_code=200)
+
+if __name__ == "__main__":
+    print("Starting Zoomie...")
+    uvicorn.run(app, host="127.0.0.1", port=8000)
