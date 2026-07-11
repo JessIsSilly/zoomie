@@ -3,6 +3,7 @@
 # I have NO idea how this works on anything else - Jess
 
 import os
+import sys
 import config
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse, HTMLResponse
@@ -120,7 +121,10 @@ async def getModels():
 # WWW
 @app.get("/{item:path}")
 async def wwwGetPage(item: str):
-    wwwRoot = os.path.join(os.path.dirname(__file__), 'www')
+    if getattr(sys, 'frozen', False):
+        wwwRoot = os.path.join(sys._MEIPASS, "www")
+    else:
+        wwwRoot = os.path.join(os.path.dirname(__file__), 'www')
     requestedPath = os.path.realpath(os.path.join(wwwRoot, item))
 
     if (item == "/") or (item == ""):
