@@ -13,6 +13,14 @@ import afmChat
 import time
 import json
 import uvicorn
+import platform
+
+def isUserOnGoodEnoughVersion() -> bool:
+    versionString = platform.mac_ver()[0]
+    if not versionString:
+        return False
+    majorVar = int(versionString.split(".")[0])
+    return majorVar >= 26
 
 app = FastAPI()
 afModels = afmChat.appleFoundationModels()
@@ -152,5 +160,10 @@ async def wwwGetPage(item: str):
 
 if __name__ == "__main__":
     print("Starting Zoomie...")
+    if not isUserOnGoodEnoughVersion():
+        print("Your not on a new enough MacOS version, or your not using MacOS at all!"
+              "\nYou must be using MacOS 26 or newer")
+        time.sleep(30)
+        exit(1)
     print(f"Zoomie version: {config.version}\nafmChat version: {config.afmChatVersion}")
     uvicorn.run(app, host="127.0.0.1", port=8000)
