@@ -152,4 +152,5 @@ async def wwwGetPage(item: str):
 
 if __name__ == "__main__":
     print("Starting Zoomie...")
+    print(f"Zoomie version: {config.version}\nafmChat version: {config.afmChatVersion}")
     uvicorn.run(app, host="127.0.0.1", port=8000)
