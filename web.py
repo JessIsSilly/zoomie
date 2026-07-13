@@ -18,10 +18,10 @@ import tomllib
 
 if getattr(sys, 'frozen', False):
     with open(os.path.join(sys._MEIPASS, "config.toml"), "r", encoding="utf-8-sig") as f:
-        config = tomllib.load(f.read())
+        config = tomllib.loads(f.read())
 else:
     with open(os.path.join(os.path.dirname(__file__), "config.toml"), "r", encoding="utf-8-sig") as f:
-        config = tomllib.load(f.read())
+        config = tomllib.loads(f.read())
 
 def isUserOnGoodEnoughVersion() -> bool:
     versionString = platform.mac_ver()[0]
