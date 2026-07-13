@@ -17,10 +17,10 @@ import platform
 import tomllib
 
 if getattr(sys, 'frozen', False):
-    with open(os.path.join(sys._MEIPASS, "config.toml"), "rb") as f:
+    with open(os.path.join(sys._MEIPASS, "config.toml"), "r", encoding="utf-8-sig") as f:
         config = tomllib.load(f)
 else:
-    with open(os.path.join(os.path.dirname(__file__), "config.toml"), "rb") as f:
+    with open(os.path.join(os.path.dirname(__file__), "config.toml"), "r", encoding="utf-8-sig") as f:
         config = tomllib.load(f)
 
 def isUserOnGoodEnoughVersion() -> bool:
