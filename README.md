@@ -1,10 +1,9 @@
 # Zoomie
 
-Zoomie is a python script/app that allows you to host a server so you can access Apple Foundation Models on other devices, or as an API for stuff like Apple XCode
+Zoomie is a python script/app that allows you to host a server so you can access Apple Foundation Models on other devices, or as an API for stuff like Apple Xcode. This is possible through the use of Apples Python SDK for their Foundation Models. On top of this, it also uses a custom wrapper I wrote to make calling it easier. This project is meant for people who want to mess around and experiment with Apples Foundation Models.
 
 ## Important Note!
-1. I cannot at all build the app. I'm still looking into it. If you came from Stardance, please look at the newest dev log ("Regarding feedback")
-2. Zoomie will ONLY work on Macs with support for Apple intelligence. This is because of Apples requirements for Apple Foundation Models.
+Zoomie will ONLY work on Macs with support for Apple intelligence. This is because of Apples requirements for Apple Foundation Models.
 
 # Features:
 Features of Zoomie include
