@@ -18,12 +18,15 @@ Documentation is available at [the docs folder](https://github.com/JessIsSilly/z
 
 ## Installation
 
-To begin using Zoomie server, download the contents of this github repo, and open a terminal in the unzipped folder. Next, run the following command:
-```bash
-pip install -r requirements.txt
-```
-Please note that if it throws an error about apple_fm_sdk, you may not have XCode installed (install it from the Mac app store). Or, you have an old version of Python which is not compatible. After you complete that, run in a terminal/ide web.py. 
+To begin using Zoomie server, you have two options:
+1. download the contents of this github repo, and open a terminal in the unzipped folder. Next, run the following command:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    Please note that if it throws an error about apple_fm_sdk, you may not have XCode installed (install it from the Mac app store). Or, you have an old version of Python which is not compatible. After you complete that, run in a terminal/ide web.py. 
 
+
+2. Use the executable found in releases inside the Zoomie.Mac.zip file. This should start successfully. If you have any issue starting Zoomie this way, please make me aware inside [Issues](https://github.com/JessIsSilly/zoomie/issues)
 ## Usage
 To use the Zoomie web ui (if enabled) go to https://localhost:8000/, and you should see a (very basic as of right now) page where you can interact with the AI. You can even access it from other devices if you know your Macs IP. How ever if it is not enabled, please refer to the API documentation for more information about integrating Zoomie with anything.
 
