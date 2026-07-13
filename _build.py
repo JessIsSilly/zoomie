@@ -1,5 +1,6 @@
 import PyInstaller.__main__
-import about
+import os
+import shutil
 
 PyInstaller.__main__.run([
     "--clean",
@@ -9,3 +10,5 @@ PyInstaller.__main__.run([
     "--name", "Zoomie Server",
     "web.py"
 ])
+
+shutil.copyfile(os.path.join(os.path.dirname(__file__), "config.toml"), os.path.join(os.path.dirname(__file__), "dist", "config.toml"))
