@@ -13,7 +13,7 @@ Features of Zoomie include
 
 # Documentation
 Documentation is available at [the docs folder](https://github.com/JessIsSilly/zoomie/blob/main/docs), or for specific things, see here:
-* Web Server/ui: https://github.com/JessIsSilly/zoomie/blob/main/docs/web server.md
+* Web Server/ui: https://github.com/JessIsSilly/zoomie/blob/main/docs/web%20server.md
 * API: https://github.com/JessIsSilly/zoomie/blob/main/docs/api.md
 
 ## Installation
