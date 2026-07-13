@@ -1,5 +1,5 @@
 import PyInstaller.__main__
-import config
+import about
 
 PyInstaller.__main__.run([
     "--clean",

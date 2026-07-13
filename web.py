@@ -1,10 +1,10 @@
 # IMPORTANT!
 # This has only been tested on XCode, and Brave.
-# I have NO idea how this works on anything else - Jess
+# I have NO idea how this works on anything else
 
 import os
 import sys
-import config
+import about
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse, HTMLResponse
 from fastapi.concurrency import run_in_threadpool
@@ -14,6 +14,14 @@ import time
 import json
 import uvicorn
 import platform
+import tomllib
+
+if getattr(sys, 'frozen', False):
+    with open(os.path.join(sys._MEIPASS, "config.toml"), "rb") as f:
+        config = tomllib.load(f)
+else:
+    with open(os.path.join(os.path.dirname(__file__), "config.toml"), "rb") as f:
+        config = tomllib.load(f)
 
 def isUserOnGoodEnoughVersion() -> bool:
     versionString = platform.mac_ver()[0]
@@ -107,8 +115,8 @@ async def simpleGetAiResponse(request: Request):
 @app.get("/v1/zoomie/about")
 async def zoomieAbout():
     return {
-        "version": config.version,
-        "appleFoundationModelChatVersion": config.afmChatVersion
+        "version": about.version,
+        "appleFoundationModelChatVersion": about.afmChatVersion
     }
 
 @app.get("/v1/models")
@@ -129,6 +137,10 @@ async def getModels():
 # WWW
 @app.get("/{item:path}")
 async def wwwGetPage(item: str):
+    global config
+    if not config["enableWebUi"]:
+        return JSONResponse(status_code=403, content={"error": "disabled"})
+
     if getattr(sys, 'frozen', False):
         wwwRoot = os.path.join(sys._MEIPASS, "www")
     else:
@@ -165,5 +177,5 @@ if __name__ == "__main__":
               "\nYou must be using MacOS 26 or newer")
         time.sleep(30)
         exit(1)
-    print(f"Zoomie version: {config.version}\nafmChat version: {config.afmChatVersion}")
+    print(f"Zoomie version: {about.version}\nafmChat version: {about.afmChatVersion}")
     uvicorn.run(app, host="127.0.0.1", port=8000)
