@@ -27,7 +27,7 @@ To begin using Zoomie server, you have two options:
 
 2. Use the executable found in releases inside the Zoomie.Mac.zip file. This should start successfully. If you have any issue starting Zoomie this way, please make me aware inside [Issues](https://github.com/JessIsSilly/zoomie/issues)
 ## Usage
-To use the Zoomie web ui (if enabled) go to https://localhost:8000/, and you should see a (very basic as of right now) page where you can interact with the AI. You can even access it from other devices if you know your Macs IP. How ever if it is not enabled, please refer to the API documentation for more information about integrating Zoomie with anything.
+To use the Zoomie web ui (if enabled) go to http://localhost:8000/ (if that doesn't work, try 127.0.0.1:8000), and you should see a (very basic as of right now) page where you can interact with the AI. You can even access it from other devices if you know your Macs IP. How ever if it is not enabled, please refer to the API documentation for more information about integrating Zoomie with anything.
 
 ## Contributing
 
