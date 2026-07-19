@@ -42,8 +42,16 @@
 const sendButton = document.getElementById("sendBtn")
 const inputField = document.getElementById("questionEntryField")
 
-sendButton.addEventListener("click", async () => {
-    console.log(inputField.value)
+inputField.addEventListener("keydown", (event) => {
+    if (event.key == "Enter"){
+        event.preventDefault()
+        sendButton.click()
+    }
+})
+
+sendButton.addEventListener("click", async () => {await forButtonSendToAfm()})
+
+async function forButtonSendToAfm() {
     sendButton.disabled = true
     inputField.disabled = true
 
@@ -54,7 +62,7 @@ sendButton.addEventListener("click", async () => {
         sendButton.disabled = false
         inputField.disabled = false
     }
-})
+}
 </script>
 </body>
 </html>
