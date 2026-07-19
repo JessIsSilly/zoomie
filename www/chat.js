@@ -8,7 +8,7 @@ var errorBanner = null
 
 function throwErrorBannerNew(errorMessage) {
     const text = document.getElementById("errorMessage")
-    text.content = errorMessage
+    text.textContent = errorMessage
 
     errorBanner.style.display = 'flex'
 }
@@ -38,6 +38,7 @@ async function getResponseFromAfm(message) {
         if (!response.ok) {
             throwErrorBannerNew(responseData.response)
             aiResponseTextField.textContent = "AI: ..."
+            return
         }
 
         aiResponseTextField.innerText = "AI: " + responseData.response
