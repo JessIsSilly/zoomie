@@ -6,7 +6,7 @@ import os
 import sys
 import about
 from fastapi import FastAPI, Request
-from fastapi.responses import StreamingResponse, JSONResponse, HTMLResponse
+from fastapi.responses import StreamingResponse, JSONResponse, HTMLResponse, FileResponse
 from fastapi.concurrency import run_in_threadpool
 import uuid
 import afmChat
@@ -14,10 +14,7 @@ import time
 import json
 import uvicorn
 import platform
-import tomllib
-
-with open(os.path.join(os.path.dirname(__file__), "config.toml"), "r", encoding="utf-8-sig") as f:
-    config = tomllib.loads(f.read())
+import config
 
 def isUserOnGoodEnoughVersion() -> bool:
     versionString = platform.mac_ver()[0]
@@ -133,8 +130,7 @@ async def getModels():
 # WWW
 @app.get("/{item:path}")
 async def wwwGetPage(item: str):
-    global config
-    if not config["enableWebUi"]:
+    if not config.enableWebUi:
         return JSONResponse(status_code=403, content={"error": "disabled"})
 
     if getattr(sys, 'frozen', False):
@@ -164,6 +160,8 @@ async def wwwGetPage(item: str):
 
     with open(requestedPath) as page:
         print(requestedPath)
+        if not requestedPath.endswith(".html"):
+            return FileResponse(path=requestedPath)
         return HTMLResponse(content=page.read(), status_code=200)
 
 if __name__ == "__main__":

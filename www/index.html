@@ -5,10 +5,20 @@
     <script src="chat.js"></script>
 </head>
 <body>
-<div class="chatSection" id="chatSectionDiv">
-    <h1 class="userResponse" id="userResponseH1">User: ...</h1>
-    <h1 class="aiResponse" id="aiResponseH1" style="">AI: ...</h1>
+<div class="welcomeHeader">
+    <img src="Assets/zoomieLogo.png">
 </div>
+<div class="errorBanner">
+
+</div>
+<div class="chatSection" id="chatSectionDiv">
+    <div class="responseArea" contenteditable="false" id="userResponseH1">User: ...</div>
+    <br>
+    <div class="responseArea" contenteditable="false" id="aiResponseH1">AI: ...</div>
+    <!-- <h1 class="userResponse" id="userResponseH1">User: ...</h1>
+    <h1 class="aiResponse" id="aiResponseH1" style="">AI: ...</h1> -->
+</div>
+<br>
 <div class="userInteractionArea" id="userInteractionArea">
 <input type="text" name="questionEntry" placeholder="question..." id="questionEntryField">
     <button id="sendBtn">Send</button>

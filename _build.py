@@ -11,4 +11,4 @@ PyInstaller.__main__.run([
     "web.py"
 ])
 
-shutil.copyfile(os.path.join(os.path.dirname(__file__), "config.toml"), os.path.join(os.path.dirname(__file__), "dist", "config.toml"))
+shutil.copyfile(os.path.join(os.path.dirname(__file__), "config.py"), os.path.join(os.path.dirname(__file__), "dist", "config.py"))

@@ -10,8 +10,8 @@ async function getResponseFromAfm(message) {
         return
     }
 
-    userResponseTextField.textContent = "User: " + message
-    aiResponseTextField.textContent = "AI: thinking..."
+    userResponseTextField.innerText = "User: " + message
+    aiResponseTextField.innerText = "AI: thinking..."
 
     try {
         const response = await fetch(window.location.origin + "/v1/simple/getAiResponse", {
@@ -27,7 +27,7 @@ async function getResponseFromAfm(message) {
 
         var responseData = await response.json()
 
-        aiResponseTextField.textContent = "AI: " + responseData.response
+        aiResponseTextField.innerText = "AI: " + responseData.response
     }
     catch (error) {
         console.error(error)

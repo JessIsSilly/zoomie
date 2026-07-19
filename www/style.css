@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    background-color: #1e1e1e;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button {
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+
+.responseArea {
+    background-color: rgb(102 102 102 / 0.27);
+    min-width: 50px;
+    min-height: 50px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    gap: 5px;
+}
