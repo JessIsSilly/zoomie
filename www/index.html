@@ -8,9 +8,14 @@
 <div class="welcomeHeader">
     <img src="Assets/zoomieLogo.png">
 </div>
-<div class="errorBanner">
-
+<div class="errorBanner" id="errorBanner">
+    <img src="Assets/warning.png" style="width: 25px; height: 25px;">
+    <div class="text">
+        <a onclick="closeError()" class="closeErrorButton">Close</a>
+        <span class="message" id="errorMessage">This is sample error text!</span>
+    </div>
 </div>
+<br>
 <div class="chatSection" id="chatSectionDiv">
     <div class="responseArea" contenteditable="false" id="userResponseH1">User: ...</div>
     <br>
@@ -21,11 +26,12 @@
 <br>
 <div class="userInteractionArea" id="userInteractionArea">
 <input type="text" name="questionEntry" placeholder="question..." id="questionEntryField">
-    <button id="sendBtn">Send</button>
+    <button id="sendBtn" class="buttonSend">Send</button>
 </div>
 
 <script>aiResponseTextField = document.getElementById("aiResponseH1")</script>
 <script>userResponseTextField = document.getElementById("userResponseH1")</script>
+<script>errorBanner = document.getElementById("errorBanner")</script>
 
 <script>
 const sendButton = document.getElementById("sendBtn")

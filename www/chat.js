@@ -4,6 +4,18 @@
 // i've gotta make sure to set this in html
 var aiResponseTextField = null
 var userResponseTextField = null
+var errorBanner = null
+
+function throwErrorBannerNew(errorMessage) {
+    const text = document.getElementById("errorMessage")
+    text.content = errorMessage
+
+    errorBanner.style.display = 'flex'
+}
+
+function closeError() {
+    errorBanner.style.display = 'none'
+}
 
 async function getResponseFromAfm(message) {
     if (!aiResponseTextField) {
@@ -21,11 +33,12 @@ async function getResponseFromAfm(message) {
             })
         });
 
-        if (!response.ok) {
-            aiResponseTextField.textContent = "SYSTEM: Error. Try again later."
-        }
-
         var responseData = await response.json()
+
+        if (!response.ok) {
+            throwErrorBannerNew(responseData.response)
+            aiResponseTextField.textContent = "AI: ..."
+        }
 
         aiResponseTextField.innerText = "AI: " + responseData.response
     }

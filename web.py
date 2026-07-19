@@ -95,6 +95,7 @@ async def chatCompletions(request: dict):
 
 @app.post("/v1/simple/getAiResponse")
 async def simpleGetAiResponse(request: Request):
+    return JSONResponse(status_code=404, content={"haii": ":P"})
     requestJson = await request.json()
     if not requestJson["message"]:
         print("no question")

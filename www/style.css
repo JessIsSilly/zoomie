@@ -8,10 +8,43 @@ body {
     font-style: normal;
 }
 
-button {
+.errorBanner {
+    background-color: rgb(168 0 0 / 0.27);
+    min-width: 50px;
+    min-height: 50px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: none;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    gap: 5px;
+    text-align: right;
+}
+
+.errorBanner img {
+    object-fit: cover;
+}
+
+.errorBanner .text {
+    margin-left: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonSend {
     border-radius: 15px;
     background-color: black;
     color: white;
+}
+
+.closeErrorButton {
+    cursor: pointer;
+    font-size: 10px;
 }
 
 .responseArea {
